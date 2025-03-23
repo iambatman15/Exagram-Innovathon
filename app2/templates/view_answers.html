@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-testgen">
+<h1>Submitted Answers</h1>
+{% for section, content in sections.items() %}
+<h2>{{ section }}</h2>
+<ul>
+    {% for question in content['questions'] or content %}
+    <li>
+        <p><strong>Question {{ question['question_no'] }}:</strong> {{ question['question'] }}</p>
+        <p><strong>Answer:</strong> {{ question.get('answer', 'Not answered') }}</p>
+    </li>
+    <hr>
+    {% endfor %}
+</ul>
+{% endfor %}
+<form action="/evaluate_answers_buddy" method="post">
+    <button type="submit">Evaluate Answers</button>
+</form>
+
+</div>
+
+{% endblock %}

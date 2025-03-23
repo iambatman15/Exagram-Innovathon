@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-testgen">
+
+<h1>Solve the Questions</h1>
+<form action="/solve" method="post">
+    {% for section, data in sections.items() %}
+    <h2>{{ section }}</h2>
+    {% for question in data['questions'] or data %}
+    <div>
+        <p><strong>Question {{ question['question_no'] }}:</strong> {{ question['question'] }} ({{ question['marks'] }} Marks)</p>
+        <p><em>Subtopic:</em> {{ question['subtopic'] }}</p>
+        <label for="{{ section }}_answer_{{ question['question_no'] }}">Your Answer:</label>
+        <textarea id="{{ section }}_answer_{{ question['question_no'] }}" name="{{ section }}_answer_{{ question['question_no'] }}" rows="2" cols="100" style="border-radius: 20px;padding-left: 7px;"></textarea>
+    </div>
+    <br>
+    {% endfor %}
+    {% endfor %}
+    <button type="submit">Submit Answers</button>
+</form>
+<a href="/view">
+    <button type="button">View Answers</button>
+</a>    
+</div>
+{% endblock %}

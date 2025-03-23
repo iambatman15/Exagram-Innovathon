@@ -1,0 +1,59 @@
+<aside class="sidebar">
+    <header class="sidebar-header">
+        <a href="#" class="header-logo">
+            <img src="/static/logo.png" alt="Logo">
+        </a>
+        <button class="toggler sidebar-toggler">
+            <span class="material-symbols-rounded">chevron_left</span>
+        </button>
+        <button class="toggler menu-toggler">
+            <span class="material-symbols-rounded">menu</span>
+        </button>
+    </header>
+    <nav class="sidebar-nav">
+        <ul class="nav-list primary-nav">
+            <li><a href="/dashboard" class="nav-link" data-tooltip="Dashboard">
+                <span class="material-symbols-rounded">home</span>
+                <span class="nav-label">Dashboard</span>
+            </a></li>
+            <li><a href="/buddy" class="nav-link" data-tooltip="Exabuddy">
+                <span class="material-symbols-rounded">school</span>
+                <span class="nav-label">Exabuddy</span>
+            </a></li>
+            <li><a href="/testgen" class="nav-link" data-tooltip="Testgen">
+                <span class="material-symbols-rounded">description</span>
+                <span class="nav-label">Testgen</span>
+            </a></li>
+            <li><a href="/exaguru" class="nav-link" data-tooltip="ExaGuru">
+                <span class="material-symbols-rounded">smart_toy</span>
+                <span class="nav-label">ExaGuru</span>
+            </a></li>
+            <li><a href="/exaconnect" class="nav-link" data-tooltip="ExaConnect">
+                <span class="material-symbols-rounded">chat</span>
+                <span class="nav-label">ExaConnect</span>
+            </a></li>
+            <!-- <li><a href="/exavault" class="nav-link" data-tooltip="ExaVault">
+                <span class="material-symbols-rounded">cloud_upload</span>
+                <span class="nav-label">ExaVault</span>
+            </a></li> -->
+            <li><a href="/pyqs" class="nav-link" data-tooltip="PYQS">
+                <span class="material-symbols-rounded">dynamic_form</span>
+                <span class="nav-label">PYQS</span>
+            </a></li>
+            <li><a href="/more" class="nav-link" data-tooltip="More">
+                <span class="material-symbols-rounded">more_vert</span>
+                <span class="nav-label">More</span>
+            </a></li>
+        </ul>
+        <ul class="nav-list secondary-nav">
+            <li><a href="#" class="nav-link" data-tooltip="Profile">
+                <span class="material-symbols-rounded">person</span>
+                <span class="nav-label">Profile</span>
+            </a></li>
+            <li><a href="{{ url_for("auth.logout") }}" class="nav-link" data-tooltip="Logout">
+                <span class="material-symbols-rounded">logout</span>
+                <span class="nav-label">Logout</span>
+            </a></li>
+        </ul>
+    </nav>
+</aside>

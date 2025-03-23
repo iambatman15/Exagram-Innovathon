@@ -1,0 +1,182 @@
+
+.sub-container {
+ 
+    height: calc(100vh - 18%);
+    display: flex
+;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 20px;
+}
+/* Left and Right Containers */
+.left-container {
+    width: 100%;
+    height: 25%;
+    background-color: #aea8f5;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* padding: 20px; */
+    /* margin-top: 130px; */
+    margin-left: 10px;
+    overflow-y: auto;
+}
+
+.chat-history {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    max-height: 70vh;
+    overflow-y: auto;
+
+    border-radius: 10px;
+}
+
+.message-bubble {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.message-bubble.user {
+    align-self: flex-end;
+    background-color: #e0f7fa;
+    color: #00796b;
+    border-top-right-radius: 0;
+}
+
+.message-bubble.bot {
+    align-self: flex-start;
+    background-color: #ede7f6;
+    color: #5e35b1;
+    border-top-left-radius: 0;
+}
+
+/* Scrollbar customization */
+.chat-history::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-history::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+.chat-history::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+}
+
+
+.right-container {
+    width: 100%;
+    height: 97%;
+    background-color: #b39ddb;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-right: 10px;
+    margin-top: 10px;
+    overflow-y: auto;
+}
+
+.document-list{
+    display: flex
+    ;
+        justify-content: flex-start;
+        gap: 20px;
+        padding-top: 20px;
+        padding-left: 10px;
+}
+
+/* Typing Area (Unchanged) */
+.typing-area-buddy {
+    width: 100%; /* Full width of the main container */
+    
+    padding: 16px 0; /* Add vertical padding */
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    border-top: 1px solid rgba(0, 0, 0, 0.1); /* Divider at the top */
+    border-radius: 0 0 16px 16px; /* Smooth bottom corners */
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.typing-area-buddy :where(.typing-form) {
+    display: flex;
+    gap: 0.75rem;
+    width:80%;
+    padding-left: 5px;
+}
+
+.typing-area-buddy :where(.actions-buttons) {
+    display: flex;
+    gap: 0.75rem;
+}
+.typing-area-buddy .input-wrapper {
+    height: 56px;
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+.typing-area-buddy .typing-input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: #333; /* Darker text */
+    border-radius: 6.2rem;
+    padding: 1.1rem 4rem 1.1rem 1.5rem;
+    background: #f2f2f2; /* Light background */
+}
+
+.typing-area-buddy .typing-input::placeholder {
+    color: #888; /* Placeholder color */
+}
+
+.typing-area-buddy .typing-input:focus {
+    background: #e0e0e0; /* Darker background on focus */
+}
+
+.typing-area-buddy .icon {
+    height: 56px;
+    width: 56px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #ddd; /* Icon background */
+    transition: background 0.2s ease;
+}
+
+.typing-area-buddy .icon:hover {
+    background: #ccc; /* Darker hover effect */
+}
+
+.typing-area-buddy .input-wrapper .icon {
+    position: absolute;
+    right: 0;
+    outline: none;
+    border: none;
+    background: none;
+    color: #333; /* Icon color */
+    transform: scale(1);
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.typing-area-buddy .input-wrapper .typing-input:valid + .icon {
+    color: #007bff; /* Valid icon color */
+    transform: scale(1.1); /* Slightly larger on validation */
+}
+
+.typing-area-buddy .disclaimer-text {
+    font-size: 0.85rem;
+    margin-top: 1rem;
+    text-align: center;
+    color: #666; /* Disclaimer text */
+}

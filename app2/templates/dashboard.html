@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+       <!-- Personal Information -->
+       <div class="info-card">
+        <div class="header">
+            <h2>Personal Information</h2>
+            <span class="menu-icon">⋮</span>
+        </div>
+        <div class="content">
+            <div class="details">
+                <p><strong>USERNAME:</strong> John Doe</p>
+                <p><strong>UNIVERSITY:</strong> XYZ University</p>
+                <p><strong>COLLEGE:</strong> ABC College</p>
+            </div>
+            <div class="avatar">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div style="display: flex;flex-direction: row;">
+
+        <div class="container-1">
+            <!-- Filter Section -->
+            <div class="filter-container">
+                <h2>Filter Test Scores by Date Range</h2>
+                <form id="filter-form">
+                    <input type="date" id="start-date" name="start_date">
+                    <input type="date" id="end-date" name="end_date">
+                    <button type="submit">Apply Filter</button>
+                </form>
+            </div>
+
+
+            <!-- Test Scores Chart -->
+            <div class="test-scores">
+                <h2>
+                    <i class="fas fa-chart-line"></i> TestGen Scores
+                </h2>
+                <img id="scores-chart" src="/static/scores.png" alt="Scores Chart">
+            </div>
+
+        </div>
+
+
+        <!-- Areas of Improvement -->
+        <div class="improvement-section">
+            <h2>Areas of Improvement</h2>
+            <label for="test-id-select">Select Test ID:</label>
+            <select id="test-id-select" onchange="loadImprovements()">
+                <div class="branch-line"></div>
+                <option value="" disabled selected>Select a Test ID</option>
+                {% for test_id in test_ids %}
+                <option value="{{ test_id }}">Test {{ test_id }}</option>
+                {% endfor %}
+            </select>
+            <div class="suggestion-container">
+                <ul id="improvement-list"></ul>
+            </div>
+            
+        </div>
+
+    </div>
+</div>
+{% endblock %}

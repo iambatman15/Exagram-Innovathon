@@ -1,0 +1,38 @@
+{% extends "base_for_chat.html" %}
+
+{% block title %}
+Live Chat
+{% endblock %}
+
+{% block content %}
+<div class="container create-room-container mx-auto p-1">
+    <div class="d-flex">
+        <h1 class="h5 bg-secondary text-light p-2 mb-0 flex-grow-1">{{ room["name"] }}</h1>
+        <button class="btn btn-sm btn-outline-secondary" id="leaveButton">Leave</button>
+    </div>
+    <div class="message-container container-fluid mb-2 py-2 overflow-auto border border-1 border-secondary d-flex 
+        flex-column" id="messageContainer">
+        <div class="mt-auto"></div>
+    </div>
+
+    <!-- Message Form -->
+    <form id="form">
+        <div class="d-flex flex-nowrap mb-2">
+            <input autocomplete="off" class="form-control flex-grow-1 me-1" type="text" id="input"
+                placeholder="Write a message...">
+            <button class="btn btn-sm btn-outline-primary"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </form>
+
+    <!-- File Upload Section -->
+    <div class="d-flex flex-nowrap">
+        <input type="file" class="form-control me-1" id="fileInput" accept=".png, .jpg, .jpeg, .pdf">
+        <button class="btn btn-sm btn-outline-success" id="uploadButton">
+            <i class="fa-solid fa-upload"></i> Upload
+        </button>
+        <div id="messageContainer"></div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='index.js') }}" charset="utf-8"></script>
+{% endblock %}

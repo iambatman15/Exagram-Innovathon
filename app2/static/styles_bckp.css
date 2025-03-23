@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #6e667c, #473764);
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+/* Container Styles */
+form {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    max-width: 400px;
+    backdrop-filter: blur(10px);
+}
+
+form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ddd;
+    font-size: 0.9rem;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #473764;
+    font-size: 1rem;
+}
+
+form input:focus {
+    outline: none;
+    border: 2px solid #473764;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background: #473764;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+form button:hover {
+    background: #6e667c;
+}
+
+/* Link Styles */
+form p {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+form a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+form a:hover {
+    color: #ddd;
+}
+
+/* Dashboard Styles */
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+a#logout-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #6e667c;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+a#logout-btn:hover {
+    background: #473764;
+}
+
+.sidebar {
+    width: 270px;
+    margin: 16px;
+    border-radius: 16px;
+    height: calc(100vh - 32px);
+    background: rgba(71, 55, 100, 0.6); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Applying the blur effect */
+    transition: 0.4s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: soft shadow for depth */
+}
+.sidebar {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.sidebar.collapsed {
+    width: 85px;
+}
+
+.sidebar-header {
+    display: flex;
+    padding: 25px 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar-header .header-logo img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    display: block;
+    border-radius: 50%;
+}
+
+.sidebar-header .toggler {
+    height: 35px;
+    width: 35px;
+    border: none;
+    color: #151a2d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 8px;
+    background: #fff;
+    transition: 0.4s ease;
+}
+
+.sidebar-header .sidebar-toggler {
+    position: absolute;
+    right: 20px;
+}
+
+.sidebar-header .toggler:hover {
+    background: #dde4fb;
+}
+
+.sidebar-header .menu-toggler {
+    display: none;
+}
+
+.sidebar-header .toggler span {
+    font-size: 1.75rem;
+}
+
+.sidebar-nav .primary-nav {
+    list-style: none;
+    display: flex;
+    gap: 4px;
+    padding: 0 15px;
+    flex-direction: column;
+    margin-bottom: 120px; /* Separates primary and secondary nav */
+    transform: translateY(15px);
+    transition: 0.4s ease;
+}
+
+.sidebar-nav .secondary-nav {
+    list-style: none;
+    display: flex;
+    gap: 4px;
+    padding: 0 15px;
+    flex-direction: column;
+    transform: translateY(15px);
+    transition: 0.4s ease;
+}
+
+.sidebar-nav .nav-link {
+    color: white;
+    display: flex;
+    gap: 12px;
+    border-radius: 8px;
+    align-items: center;
+    padding: 12px 15px;
+    text-decoration: none;
+    transition: 0.4s ease;
+    position: relative;
+}
+
+.sidebar-nav .nav-link:hover {
+    color: #473764;
+    background: #fff;
+}
+
+.sidebar-nav .nav-link[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 100%;
+    margin-left: 10px;
+    background: #fff;
+    color: #473764;
+    font-size: 0.85rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.sidebar-nav .nav-link .nav-label {
+    transition: 0.4s ease;
+}
+
+.sidebar.collapsed .sidebar-nav .nav-link .nav-label {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sidebar.collapsed .primary-nav {
+    transform: translateY(65px);
+}
+
+
+.main-container {
+
+    margin-top: 16px;
+    width: 100%; /* Full width minus sidebar and margin */
+    height:calc(100vh - 30px); /* Full height minus margin */
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    margin-right: 20px;
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   
+    transition: margin-left 0.3s ease;
+}
+
+
+@media (max-width: 1024px) {
+    .sidebar {
+        height: 56px;
+        overflow-y: hidden;
+        scrollbar-width: none;
+        margin: 13px;
+        width: calc(100% - 28px);
+        max-height: calc(100% - 28px);
+    }
+
+    .sidebar-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: #473764;
+        padding: 8px 10px;
+        border-radius: 16px;
+    }
+
+    .sidebar-header .header-logo img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .sidebar-header .sidebar-toggler {
+        display: none;
+    }
+
+    .sidebar-header .menu-toggler {
+        display: flex;
+        height: 30px;
+        width: 30px;
+    }
+
+    .sidebar-header .menu-toggler span {
+        font-size: 1.3rem;
+    }
+
+    .sidebar-nav .nav-list {
+        padding: 0 10px;
+    }
+
+    .sidebar-nav .nav-link {
+        gap: 10px;
+        padding: 10px;
+        font-size: 0.94rem;
+    }
+
+    .sidebar-nav .nav-link .nav-icon {
+        font-size: 1.37rem;
+    }
+
+    .sidebar-nav .secondary-nav {
+        position: relative;
+        bottom: 0;
+        margin: 40px 0 30px;
+    }
+}

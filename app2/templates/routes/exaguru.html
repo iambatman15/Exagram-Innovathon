@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="sub-container">
+
+<!-- Right Sub-Container -->
+<div class="right-container">
+    <div class="chat-history">
+        {% for question, answer in zip(past, generated) %}
+        <div class="message-bubble user">
+            <p><strong>You:</strong> {{ question }}</p>
+        </div>
+        <div class="message-bubble bot">
+            <p><strong>EXAGURU:</strong> {{ answer }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+</div>
+
+<!-- Typing Area -->
+<div class="typing-area-buddy">
+    <form action="/ask_exaguru" method="POST" class="typing-form">
+        <div class="input-wrapper">
+            <input type="text" name="question" class="typing-input" placeholder="Enter a prompt here" required>
+            <button type="submit" class="icon material-symbols-rounded">send</button>
+        </div>
+    </form>
+
+    <div class="actions-buttons"> 
+
+        <span id="history-button" class="icon material-symbols-rounded">history</span>
+        <form action="/clear_exaguru" method="POST">
+            <button type="submit" class="icon material-symbols-rounded">delete</button>
+        </form>
+    </div>
+    
+
+</div>
+
+
+{% endblock %}

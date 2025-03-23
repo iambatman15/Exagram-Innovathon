@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-testgen">
+    <div class="right">
+        <h1 >Document Processing</h1>
+        <form action="/upload_buddy" method="POST" enctype="multipart/form-data">
+            <input type="file" name="pdfs" multiple>
+            <button type="submit">Submit & Process</button>
+        </form>
+        <h3  style="
+        margin-top: 10px;">Question Form</h1>
+        <form action="/result" method="POST">
+            <label for="total_sections">Total Sections:</label>
+            <input type="number" id="total_sections" name="total_sections" min="1" required oninput="generateSectionInputs()"><br><br>
+            <div id="sections_container"></div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+<script>
+    function generateSectionInputs() {
+        const totalSections = document.getElementById('total_sections').value;
+        const sectionsContainer = document.getElementById('sections_container');
+        sectionsContainer.innerHTML = '';
+        for (let i = 0; i < totalSections; i++) {
+            sectionsContainer.innerHTML += `
+                <h3>Section ${i + 1}</h3>
+                <label for="section_type_${i}">Type of Question:</label>
+                <input type="text" id="section_type_${i}" name="section_type_${i}" required><br><br>
+                <label for="section_questions_${i}">Number of Questions:</label>
+                <input type="number" id="section_questions_${i}" name="section_questions_${i}" required><br><br>
+                <label for="section_marks_${i}">Marks per Question:</label>
+                <input type="number" id="section_marks_${i}" name="section_marks_${i}" required><br><br>
+            `;
+        }
+    }
+</script>
+{% endblock %}

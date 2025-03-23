@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <h1>Distributed Systems Questions</h1>
+    
+
+    <div>    <!-- Semester Dropdown -->
+    <label for="semester" style="
+    padding-right: 40px;
+">Select Semester:</label>
+    <select id="semester">
+        <option value="">--Select Semester--</option>
+        {% for semester in semesters %}
+            <option value="{{ semester[0] }}">{{ semester[1] }}</option>
+        {% endfor %}
+    </select>
+</div>
+
+    <div>    <!-- Subject Dropdown -->
+    <label for="subject" style="
+    padding-right: 40px;
+">Select Subject:</label>
+    <select id="subject">
+        <option value="">--Select Subject--</option>
+    </select></div>
+
+    <div>    <!-- Chapter Dropdown -->
+    <label for="chapter" style="
+    padding-right: 40px;
+">Select Chapter:</label>
+    <select id="chapter">
+        <option value="">--Select Chapter--</option>
+    </select>
+</div>
+
+    <!-- Questions Section -->
+    <h3>Questions:</h3>
+    <ul id="questions">
+        <!-- Questions will be listed here -->
+    </ul>
+</div>
+
+    {% endblock %}

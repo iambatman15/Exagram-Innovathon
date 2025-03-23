@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/styles_dash.css">
+    <link rel="stylesheet" href="/static/styles_buddy.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded">
+    <script src="/static/script.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="/static/pyq.js" defer></script>
+</head>
+<body>
+    {% include 'sidebar.html' %}
+    <div class="main-container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

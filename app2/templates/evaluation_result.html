@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-testgen">
+<h1 style="
+padding-bottom: 5px;
+">Evaluation Result</h1>
+<p style="
+padding-bottom: 10px;
+"><strong>Total Marks Scored:</strong> {{ evaluation['marks_scored'] }} out of {{ evaluation['total_marks'] }}</p>
+
+<h2 style="
+padding-bottom: 10px;
+">Areas of Improvement:</h2>
+<ul style="
+padding-bottom: 7px;
+">
+    {% for weakness in evaluation['improvement_areas'] %}
+    <li style="
+    padding-bottom: 5px;
+    ">{{ weakness }}</li>
+    {% endfor %}
+</ul>
+
+<h2 style="
+padding-bottom: 10px;
+">Suggestions for Improvement:</h2>
+<ul style="
+padding-bottom: 7px;
+">
+    {% for suggestion in evaluation['improvement_suggest'] %}
+    <li style="
+    padding-bottom: 5px;
+    ">{{ suggestion }}</li>
+    {% endfor %}
+</ul>
+
+</div>
+
+{% endblock %}

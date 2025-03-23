@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-testgen">
+    <h1>Generated Questions</h1>
+    <a href="/solve">
+        <button>Click here to solve paper</button>
+    </a>
+    <div>
+        {% if result %}
+            {% for section, data in result.items() %}
+                <h2>{{ section }}</h2>
+                <ul>
+                    {% for question in data['questions'] or data %}
+                        <li>
+                            <!-- <strong>Question No:</strong> {{ question['question_no'] }}<br> -->
+                            <strong>Question:</strong> {{ question['question'] }}<br>
+                            <strong>Marks:</strong> {{ question['marks'] }}<br>
+                            <strong>Subtopic:</strong> {{ question['subtopic'] }}<br>
+                            <strong>--------------------</strong>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        {% else %}
+            <p>No questions generated.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

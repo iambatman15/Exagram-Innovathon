@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="sub-container">
+            
+    <div class="left-container">
+        <h2>Uploaded Documents:</h2>
+        <div id="uploaded-documents-list" class="document-list">
+            {% for doc in uploaded_document_names %}
+            <div class="document-item">
+                <span class="icon material-symbols-rounded">description</span>
+                <p class="document-name">{{ doc }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+<!-- Right Sub-Container -->
+<div class="right-container">
+    <div class="chat-history">
+        {% for question, answer in zip(past, generated) %}
+        <div class="message-bubble user">
+            <p><strong>You:</strong> {{ question }}</p>
+        </div>
+        <div class="message-bubble bot">
+            <p><strong>EXABUDDY:</strong> {{ answer }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+</div>
+
+<!-- Typing Area -->
+<div class="typing-area-buddy">
+    <form action="/ask_exabuddy" method="POST" class="typing-form">
+        <div class="input-wrapper">
+            <input type="text" name="question" class="typing-input" placeholder="Enter a prompt here" required>
+            <button type="submit" class="icon material-symbols-rounded">send</button>
+        </div>
+    </form>
+
+    <div class="actions-buttons"> 
+        <form action="/upload_exabuddy" method="POST" enctype="multipart/form-data" id="upload-form">
+            <label for="fileInput" class="icon material-symbols-rounded">upload_file</label>
+            <input type="file" id="fileInput" name="pdfs" multiple style="display: none;" onchange="uploadFiles(this.files)">
+        </form>
+
+        <span id="history-button" class="icon material-symbols-rounded">history</span>
+        <form action="/clear_exabuddy" method="POST">
+            <button type="submit" class="icon material-symbols-rounded">delete</button>
+        </form>
+    </div>
+    
+
+</div>
+
+
+{% endblock %}
